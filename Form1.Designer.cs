@@ -51,6 +51,23 @@
             this.prgBudget = new System.Windows.Forms.ProgressBar();
             this.lblRecentTransactions = new System.Windows.Forms.Label();
             this.dgvRecentTransactions = new System.Windows.Forms.DataGridView();
+            this.pnlTransactions = new System.Windows.Forms.Panel();
+            this.lblTransactionsTitle = new System.Windows.Forms.Label();
+            this.pnlAddTransaction = new System.Windows.Forms.Panel();
+            this.lblAddTransactionTitle = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
+            this.cmbType = new System.Windows.Forms.ComboBox();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.numAmount = new System.Windows.Forms.NumericUpDown();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.cmbCategory = new System.Windows.Forms.ComboBox();
+            this.lblDate = new System.Windows.Forms.Label();
+            this.dtpDate = new System.Windows.Forms.DateTimePicker();
+            this.lblDescription = new System.Windows.Forms.Label();
+            this.txtDescription = new System.Windows.Forms.TextBox();
+            this.btnAddTransaction = new System.Windows.Forms.Button();
+            this.lblAllTransaction = new System.Windows.Forms.Label();
+            this.dgvTransactions = new System.Windows.Forms.DataGridView();
             this.pnlSidebar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.bnlBalance.SuspendLayout();
@@ -58,6 +75,10 @@
             this.pnlExpenses.SuspendLayout();
             this.pnlBudgetSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecentTransactions)).BeginInit();
+            this.pnlTransactions.SuspendLayout();
+            this.pnlAddTransaction.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -77,7 +98,7 @@
             // 
             this.btnDashboard.Location = new System.Drawing.Point(43, 77);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(133, 30);
+            this.btnDashboard.Size = new System.Drawing.Size(133, 28);
             this.btnDashboard.TabIndex = 0;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.UseVisualStyleBackColor = true;
@@ -86,7 +107,7 @@
             // 
             this.btnTransaction.Location = new System.Drawing.Point(43, 139);
             this.btnTransaction.Name = "btnTransaction";
-            this.btnTransaction.Size = new System.Drawing.Size(133, 27);
+            this.btnTransaction.Size = new System.Drawing.Size(133, 32);
             this.btnTransaction.TabIndex = 1;
             this.btnTransaction.Text = "Transactions";
             this.btnTransaction.UseVisualStyleBackColor = true;
@@ -104,7 +125,7 @@
             // 
             this.btnSavings.Location = new System.Drawing.Point(43, 275);
             this.btnSavings.Name = "btnSavings";
-            this.btnSavings.Size = new System.Drawing.Size(133, 29);
+            this.btnSavings.Size = new System.Drawing.Size(133, 33);
             this.btnSavings.TabIndex = 3;
             this.btnSavings.Text = "Saving Goals";
             this.btnSavings.UseVisualStyleBackColor = true;
@@ -113,13 +134,14 @@
             // 
             this.btnReports.Location = new System.Drawing.Point(43, 340);
             this.btnReports.Name = "btnReports";
-            this.btnReports.Size = new System.Drawing.Size(133, 29);
+            this.btnReports.Size = new System.Drawing.Size(133, 30);
             this.btnReports.TabIndex = 4;
             this.btnReports.Text = "Reports";
             this.btnReports.UseVisualStyleBackColor = true;
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.pnlTransactions);
             this.pnlMain.Controls.Add(this.dgvRecentTransactions);
             this.pnlMain.Controls.Add(this.lblRecentTransactions);
             this.pnlMain.Controls.Add(this.pnlBudgetSummary);
@@ -284,6 +306,193 @@
             this.dgvRecentTransactions.Size = new System.Drawing.Size(465, 296);
             this.dgvRecentTransactions.TabIndex = 11;
             // 
+            // pnlTransactions
+            // 
+            this.pnlTransactions.Controls.Add(this.dgvTransactions);
+            this.pnlTransactions.Controls.Add(this.lblAllTransaction);
+            this.pnlTransactions.Controls.Add(this.pnlAddTransaction);
+            this.pnlTransactions.Controls.Add(this.lblTransactionsTitle);
+            this.pnlTransactions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTransactions.Location = new System.Drawing.Point(0, 0);
+            this.pnlTransactions.Name = "pnlTransactions";
+            this.pnlTransactions.Size = new System.Drawing.Size(496, 944);
+            this.pnlTransactions.TabIndex = 12;
+            // 
+            // lblTransactionsTitle
+            // 
+            this.lblTransactionsTitle.AutoSize = true;
+            this.lblTransactionsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTransactionsTitle.Location = new System.Drawing.Point(58, 77);
+            this.lblTransactionsTitle.Name = "lblTransactionsTitle";
+            this.lblTransactionsTitle.Size = new System.Drawing.Size(261, 46);
+            this.lblTransactionsTitle.TabIndex = 0;
+            this.lblTransactionsTitle.Text = "Transactions";
+            // 
+            // pnlAddTransaction
+            // 
+            this.pnlAddTransaction.Controls.Add(this.btnAddTransaction);
+            this.pnlAddTransaction.Controls.Add(this.txtDescription);
+            this.pnlAddTransaction.Controls.Add(this.lblDescription);
+            this.pnlAddTransaction.Controls.Add(this.dtpDate);
+            this.pnlAddTransaction.Controls.Add(this.lblDate);
+            this.pnlAddTransaction.Controls.Add(this.cmbCategory);
+            this.pnlAddTransaction.Controls.Add(this.lblCategory);
+            this.pnlAddTransaction.Controls.Add(this.numAmount);
+            this.pnlAddTransaction.Controls.Add(this.lblAmount);
+            this.pnlAddTransaction.Controls.Add(this.cmbType);
+            this.pnlAddTransaction.Controls.Add(this.lblType);
+            this.pnlAddTransaction.Controls.Add(this.lblAddTransactionTitle);
+            this.pnlAddTransaction.Location = new System.Drawing.Point(33, 147);
+            this.pnlAddTransaction.Name = "pnlAddTransaction";
+            this.pnlAddTransaction.Size = new System.Drawing.Size(422, 254);
+            this.pnlAddTransaction.TabIndex = 1;
+            // 
+            // lblAddTransactionTitle
+            // 
+            this.lblAddTransactionTitle.AutoSize = true;
+            this.lblAddTransactionTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddTransactionTitle.Location = new System.Drawing.Point(25, 15);
+            this.lblAddTransactionTitle.Name = "lblAddTransactionTitle";
+            this.lblAddTransactionTitle.Size = new System.Drawing.Size(236, 32);
+            this.lblAddTransactionTitle.TabIndex = 0;
+            this.lblAddTransactionTitle.Text = "Add Transaction";
+            // 
+            // lblType
+            // 
+            this.lblType.AutoSize = true;
+            this.lblType.Location = new System.Drawing.Point(21, 71);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(43, 20);
+            this.lblType.TabIndex = 1;
+            this.lblType.Text = "Type";
+            // 
+            // cmbType
+            // 
+            this.cmbType.FormattingEnabled = true;
+            this.cmbType.Items.AddRange(new object[] {
+            "Income",
+            "Expense"});
+            this.cmbType.Location = new System.Drawing.Point(98, 68);
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Size = new System.Drawing.Size(102, 28);
+            this.cmbType.TabIndex = 2;
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Location = new System.Drawing.Point(221, 71);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(65, 20);
+            this.lblAmount.TabIndex = 3;
+            this.lblAmount.Text = "Amount";
+            // 
+            // numAmount
+            // 
+            this.numAmount.DecimalPlaces = 2;
+            this.numAmount.Location = new System.Drawing.Point(300, 69);
+            this.numAmount.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numAmount.Name = "numAmount";
+            this.numAmount.Size = new System.Drawing.Size(94, 26);
+            this.numAmount.TabIndex = 4;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Location = new System.Drawing.Point(21, 113);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(73, 20);
+            this.lblCategory.TabIndex = 5;
+            this.lblCategory.Text = "Category";
+            // 
+            // cmbCategory
+            // 
+            this.cmbCategory.FormattingEnabled = true;
+            this.cmbCategory.Items.AddRange(new object[] {
+            "Food",
+            "Trnsport",
+            "Shopping",
+            "Bills",
+            "Entertainment",
+            "Health",
+            "Education",
+            "Other"});
+            this.cmbCategory.Location = new System.Drawing.Point(98, 110);
+            this.cmbCategory.Name = "cmbCategory";
+            this.cmbCategory.Size = new System.Drawing.Size(104, 28);
+            this.cmbCategory.TabIndex = 6;
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(222, 113);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(44, 20);
+            this.lblDate.TabIndex = 7;
+            this.lblDate.Text = "Date";
+            // 
+            // dtpDate
+            // 
+            this.dtpDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDate.Location = new System.Drawing.Point(279, 108);
+            this.dtpDate.Name = "dtpDate";
+            this.dtpDate.Size = new System.Drawing.Size(115, 26);
+            this.dtpDate.TabIndex = 8;
+            this.dtpDate.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(25, 165);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(89, 20);
+            this.lblDescription.TabIndex = 9;
+            this.lblDescription.Text = "Description";
+            // 
+            // txtDescription
+            // 
+            this.txtDescription.Location = new System.Drawing.Point(120, 162);
+            this.txtDescription.Name = "txtDescription";
+            this.txtDescription.Size = new System.Drawing.Size(274, 26);
+            this.txtDescription.TabIndex = 10;
+            // 
+            // btnAddTransaction
+            // 
+            this.btnAddTransaction.Location = new System.Drawing.Point(143, 205);
+            this.btnAddTransaction.Name = "btnAddTransaction";
+            this.btnAddTransaction.Size = new System.Drawing.Size(173, 31);
+            this.btnAddTransaction.TabIndex = 11;
+            this.btnAddTransaction.Text = "Add Transaction";
+            this.btnAddTransaction.UseVisualStyleBackColor = true;
+            // 
+            // lblAllTransaction
+            // 
+            this.lblAllTransaction.AutoSize = true;
+            this.lblAllTransaction.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAllTransaction.Location = new System.Drawing.Point(64, 475);
+            this.lblAllTransaction.Name = "lblAllTransaction";
+            this.lblAllTransaction.Size = new System.Drawing.Size(233, 32);
+            this.lblAllTransaction.TabIndex = 2;
+            this.lblAllTransaction.Text = "All Transactions";
+            // 
+            // dgvTransactions
+            // 
+            this.dgvTransactions.AllowUserToAddRows = false;
+            this.dgvTransactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTransactions.Location = new System.Drawing.Point(33, 530);
+            this.dgvTransactions.MultiSelect = false;
+            this.dgvTransactions.Name = "dgvTransactions";
+            this.dgvTransactions.ReadOnly = true;
+            this.dgvTransactions.RowHeadersWidth = 62;
+            this.dgvTransactions.RowTemplate.Height = 28;
+            this.dgvTransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTransactions.Size = new System.Drawing.Size(422, 197);
+            this.dgvTransactions.TabIndex = 3;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -306,6 +515,12 @@
             this.pnlBudgetSummary.ResumeLayout(false);
             this.pnlBudgetSummary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecentTransactions)).EndInit();
+            this.pnlTransactions.ResumeLayout(false);
+            this.pnlTransactions.PerformLayout();
+            this.pnlAddTransaction.ResumeLayout(false);
+            this.pnlAddTransaction.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -335,6 +550,23 @@
         private System.Windows.Forms.ProgressBar prgBudget;
         private System.Windows.Forms.Label lblRecentTransactions;
         private System.Windows.Forms.DataGridView dgvRecentTransactions;
+        private System.Windows.Forms.Panel pnlTransactions;
+        private System.Windows.Forms.Label lblTransactionsTitle;
+        private System.Windows.Forms.Panel pnlAddTransaction;
+        private System.Windows.Forms.Label lblAddTransactionTitle;
+        private System.Windows.Forms.ComboBox cmbType;
+        private System.Windows.Forms.Label lblType;
+        private System.Windows.Forms.NumericUpDown numAmount;
+        private System.Windows.Forms.Label lblAmount;
+        private System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.ComboBox cmbCategory;
+        private System.Windows.Forms.Label lblCategory;
+        private System.Windows.Forms.DateTimePicker dtpDate;
+        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.Button btnAddTransaction;
+        private System.Windows.Forms.TextBox txtDescription;
+        private System.Windows.Forms.DataGridView dgvTransactions;
+        private System.Windows.Forms.Label lblAllTransaction;
     }
 }
 
