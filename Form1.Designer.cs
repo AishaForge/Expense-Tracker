@@ -89,6 +89,21 @@
             this.lblRemaining = new System.Windows.Forms.Label();
             this.prgBudgetOverview = new System.Windows.Forms.ProgressBar();
             this.lblBudgetPercentage = new System.Windows.Forms.Label();
+            this.pnlSaving = new System.Windows.Forms.Panel();
+            this.lblSavingPageTitle = new System.Windows.Forms.Label();
+            this.pnlAddGoal = new System.Windows.Forms.Panel();
+            this.lblAddGoalTitle = new System.Windows.Forms.Label();
+            this.lblGoalName = new System.Windows.Forms.Label();
+            this.txtGoalName = new System.Windows.Forms.TextBox();
+            this.lblTargetAmount = new System.Windows.Forms.Label();
+            this.numTargetAmount = new System.Windows.Forms.NumericUpDown();
+            this.lblAlreadySaved = new System.Windows.Forms.Label();
+            this.numAlreadySaved = new System.Windows.Forms.NumericUpDown();
+            this.btnAddGoal = new System.Windows.Forms.Button();
+            this.lblYourGoals = new System.Windows.Forms.Label();
+            this.dgvSavingsGoals = new System.Windows.Forms.DataGridView();
+            this.btnAddSavings = new System.Windows.Forms.Button();
+            this.btnDeleteGoal = new System.Windows.Forms.Button();
             this.pnlSidebar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.bnlBalance.SuspendLayout();
@@ -105,6 +120,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numBudgetYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBudgetAmount)).BeginInit();
             this.pnlBudgetOverview.SuspendLayout();
+            this.pnlSaving.SuspendLayout();
+            this.pnlAddGoal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTargetAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAlreadySaved)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSavingsGoals)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -522,6 +542,7 @@
             // 
             // pnlBudget
             // 
+            this.pnlBudget.Controls.Add(this.pnlSaving);
             this.pnlBudget.Controls.Add(this.pnlBudgetOverview);
             this.pnlBudget.Controls.Add(this.pnlSetBudget);
             this.pnlBudget.Controls.Add(this.lblBudgetPageTitle);
@@ -755,6 +776,170 @@
             this.lblBudgetPercentage.TabIndex = 8;
             this.lblBudgetPercentage.Text = "0%";
             // 
+            // pnlSaving
+            // 
+            this.pnlSaving.Controls.Add(this.btnDeleteGoal);
+            this.pnlSaving.Controls.Add(this.btnAddSavings);
+            this.pnlSaving.Controls.Add(this.dgvSavingsGoals);
+            this.pnlSaving.Controls.Add(this.lblYourGoals);
+            this.pnlSaving.Controls.Add(this.pnlAddGoal);
+            this.pnlSaving.Controls.Add(this.lblSavingPageTitle);
+            this.pnlSaving.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlSaving.Location = new System.Drawing.Point(0, 0);
+            this.pnlSaving.Name = "pnlSaving";
+            this.pnlSaving.Size = new System.Drawing.Size(496, 944);
+            this.pnlSaving.TabIndex = 3;
+            // 
+            // lblSavingPageTitle
+            // 
+            this.lblSavingPageTitle.AutoSize = true;
+            this.lblSavingPageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSavingPageTitle.Location = new System.Drawing.Point(39, 41);
+            this.lblSavingPageTitle.Name = "lblSavingPageTitle";
+            this.lblSavingPageTitle.Size = new System.Drawing.Size(269, 46);
+            this.lblSavingPageTitle.TabIndex = 0;
+            this.lblSavingPageTitle.Text = "Saving Goals";
+            this.lblSavingPageTitle.Click += new System.EventHandler(this.lblSavingPageTitle_Click);
+            // 
+            // pnlAddGoal
+            // 
+            this.pnlAddGoal.Controls.Add(this.btnAddGoal);
+            this.pnlAddGoal.Controls.Add(this.numAlreadySaved);
+            this.pnlAddGoal.Controls.Add(this.lblAlreadySaved);
+            this.pnlAddGoal.Controls.Add(this.numTargetAmount);
+            this.pnlAddGoal.Controls.Add(this.lblTargetAmount);
+            this.pnlAddGoal.Controls.Add(this.txtGoalName);
+            this.pnlAddGoal.Controls.Add(this.lblGoalName);
+            this.pnlAddGoal.Controls.Add(this.lblAddGoalTitle);
+            this.pnlAddGoal.Location = new System.Drawing.Point(36, 138);
+            this.pnlAddGoal.Name = "pnlAddGoal";
+            this.pnlAddGoal.Size = new System.Drawing.Size(408, 242);
+            this.pnlAddGoal.TabIndex = 1;
+            // 
+            // lblAddGoalTitle
+            // 
+            this.lblAddGoalTitle.AutoSize = true;
+            this.lblAddGoalTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAddGoalTitle.Location = new System.Drawing.Point(14, 12);
+            this.lblAddGoalTitle.Name = "lblAddGoalTitle";
+            this.lblAddGoalTitle.Size = new System.Drawing.Size(258, 32);
+            this.lblAddGoalTitle.TabIndex = 0;
+            this.lblAddGoalTitle.Text = "Add Savings Goal";
+            // 
+            // lblGoalName
+            // 
+            this.lblGoalName.AutoSize = true;
+            this.lblGoalName.Location = new System.Drawing.Point(26, 63);
+            this.lblGoalName.Name = "lblGoalName";
+            this.lblGoalName.Size = new System.Drawing.Size(89, 20);
+            this.lblGoalName.TabIndex = 1;
+            this.lblGoalName.Text = "Goal Name";
+            // 
+            // txtGoalName
+            // 
+            this.txtGoalName.Location = new System.Drawing.Point(163, 60);
+            this.txtGoalName.Name = "txtGoalName";
+            this.txtGoalName.Size = new System.Drawing.Size(154, 26);
+            this.txtGoalName.TabIndex = 2;
+            // 
+            // lblTargetAmount
+            // 
+            this.lblTargetAmount.AutoSize = true;
+            this.lblTargetAmount.Location = new System.Drawing.Point(28, 104);
+            this.lblTargetAmount.Name = "lblTargetAmount";
+            this.lblTargetAmount.Size = new System.Drawing.Size(115, 20);
+            this.lblTargetAmount.TabIndex = 3;
+            this.lblTargetAmount.Text = "Target Amount";
+            // 
+            // numTargetAmount
+            // 
+            this.numTargetAmount.DecimalPlaces = 2;
+            this.numTargetAmount.Location = new System.Drawing.Point(163, 99);
+            this.numTargetAmount.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numTargetAmount.Name = "numTargetAmount";
+            this.numTargetAmount.Size = new System.Drawing.Size(120, 26);
+            this.numTargetAmount.TabIndex = 4;
+            // 
+            // lblAlreadySaved
+            // 
+            this.lblAlreadySaved.AutoSize = true;
+            this.lblAlreadySaved.Location = new System.Drawing.Point(30, 141);
+            this.lblAlreadySaved.Name = "lblAlreadySaved";
+            this.lblAlreadySaved.Size = new System.Drawing.Size(111, 20);
+            this.lblAlreadySaved.TabIndex = 5;
+            this.lblAlreadySaved.Text = "Already Saved";
+            // 
+            // numAlreadySaved
+            // 
+            this.numAlreadySaved.DecimalPlaces = 2;
+            this.numAlreadySaved.Location = new System.Drawing.Point(163, 135);
+            this.numAlreadySaved.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numAlreadySaved.Name = "numAlreadySaved";
+            this.numAlreadySaved.Size = new System.Drawing.Size(120, 26);
+            this.numAlreadySaved.TabIndex = 6;
+            // 
+            // btnAddGoal
+            // 
+            this.btnAddGoal.Location = new System.Drawing.Point(95, 188);
+            this.btnAddGoal.Name = "btnAddGoal";
+            this.btnAddGoal.Size = new System.Drawing.Size(222, 34);
+            this.btnAddGoal.TabIndex = 7;
+            this.btnAddGoal.Text = "Add Goal";
+            this.btnAddGoal.UseVisualStyleBackColor = true;
+            this.btnAddGoal.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lblYourGoals
+            // 
+            this.lblYourGoals.AutoSize = true;
+            this.lblYourGoals.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblYourGoals.Location = new System.Drawing.Point(47, 452);
+            this.lblYourGoals.Name = "lblYourGoals";
+            this.lblYourGoals.Size = new System.Drawing.Size(268, 32);
+            this.lblYourGoals.TabIndex = 2;
+            this.lblYourGoals.Text = "Your Saving Goals";
+            // 
+            // dgvSavingsGoals
+            // 
+            this.dgvSavingsGoals.AllowUserToAddRows = false;
+            this.dgvSavingsGoals.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSavingsGoals.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSavingsGoals.Location = new System.Drawing.Point(33, 530);
+            this.dgvSavingsGoals.MultiSelect = false;
+            this.dgvSavingsGoals.Name = "dgvSavingsGoals";
+            this.dgvSavingsGoals.ReadOnly = true;
+            this.dgvSavingsGoals.RowHeadersWidth = 62;
+            this.dgvSavingsGoals.RowTemplate.Height = 28;
+            this.dgvSavingsGoals.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSavingsGoals.Size = new System.Drawing.Size(411, 232);
+            this.dgvSavingsGoals.TabIndex = 3;
+            this.dgvSavingsGoals.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // btnAddSavings
+            // 
+            this.btnAddSavings.Location = new System.Drawing.Point(82, 804);
+            this.btnAddSavings.Name = "btnAddSavings";
+            this.btnAddSavings.Size = new System.Drawing.Size(134, 36);
+            this.btnAddSavings.TabIndex = 4;
+            this.btnAddSavings.Text = "Add Savings";
+            this.btnAddSavings.UseVisualStyleBackColor = true;
+            // 
+            // btnDeleteGoal
+            // 
+            this.btnDeleteGoal.Location = new System.Drawing.Point(259, 804);
+            this.btnDeleteGoal.Name = "btnDeleteGoal";
+            this.btnDeleteGoal.Size = new System.Drawing.Size(134, 36);
+            this.btnDeleteGoal.TabIndex = 5;
+            this.btnDeleteGoal.Text = "Delete Goal";
+            this.btnDeleteGoal.UseVisualStyleBackColor = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -791,6 +976,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numBudgetAmount)).EndInit();
             this.pnlBudgetOverview.ResumeLayout(false);
             this.pnlBudgetOverview.PerformLayout();
+            this.pnlSaving.ResumeLayout(false);
+            this.pnlSaving.PerformLayout();
+            this.pnlAddGoal.ResumeLayout(false);
+            this.pnlAddGoal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTargetAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAlreadySaved)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSavingsGoals)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -858,6 +1050,21 @@
         private System.Windows.Forms.Label lblOverviewBudgetTitle;
         private System.Windows.Forms.Label lblBudgetPercentage;
         private System.Windows.Forms.ProgressBar prgBudgetOverview;
+        private System.Windows.Forms.Panel pnlSaving;
+        private System.Windows.Forms.Label lblSavingPageTitle;
+        private System.Windows.Forms.Panel pnlAddGoal;
+        private System.Windows.Forms.Label lblAddGoalTitle;
+        private System.Windows.Forms.NumericUpDown numTargetAmount;
+        private System.Windows.Forms.Label lblTargetAmount;
+        private System.Windows.Forms.TextBox txtGoalName;
+        private System.Windows.Forms.Label lblGoalName;
+        private System.Windows.Forms.Button btnAddGoal;
+        private System.Windows.Forms.NumericUpDown numAlreadySaved;
+        private System.Windows.Forms.Label lblAlreadySaved;
+        private System.Windows.Forms.DataGridView dgvSavingsGoals;
+        private System.Windows.Forms.Label lblYourGoals;
+        private System.Windows.Forms.Button btnDeleteGoal;
+        private System.Windows.Forms.Button btnAddSavings;
     }
 }
 
