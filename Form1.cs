@@ -16,5 +16,15 @@ namespace ExpenseTracher
         {
             InitializeComponent();
         }
+
+        private void pnlExpenses_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblRecentTransactions_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
