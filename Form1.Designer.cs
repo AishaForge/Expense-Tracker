@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.pnlSidebar = new System.Windows.Forms.Panel();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.btnTransaction = new System.Windows.Forms.Button();
@@ -104,6 +107,23 @@
             this.dgvSavingsGoals = new System.Windows.Forms.DataGridView();
             this.btnAddSavings = new System.Windows.Forms.Button();
             this.btnDeleteGoal = new System.Windows.Forms.Button();
+            this.pnlReports = new System.Windows.Forms.Panel();
+            this.lblReportsPageTitle = new System.Windows.Forms.Label();
+            this.pnlReportFilter = new System.Windows.Forms.Panel();
+            this.lblReportMonth = new System.Windows.Forms.Label();
+            this.cmbReportMonth = new System.Windows.Forms.ComboBox();
+            this.lblReportYear = new System.Windows.Forms.Label();
+            this.numReportYear = new System.Windows.Forms.NumericUpDown();
+            this.btnGenerateReport = new System.Windows.Forms.Button();
+            this.pnlReportSummary = new System.Windows.Forms.Panel();
+            this.lblReportIncomeTitle = new System.Windows.Forms.Label();
+            this.lblReportIncome = new System.Windows.Forms.Label();
+            this.lblReportExpensesTitle = new System.Windows.Forms.Label();
+            this.lblReportExpenses = new System.Windows.Forms.Label();
+            this.lblReportSavingsTitle = new System.Windows.Forms.Label();
+            this.lblReportSavings = new System.Windows.Forms.Label();
+            this.chtExpensesByCategory = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblExpensesByCategoryTitle = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.bnlBalance.SuspendLayout();
@@ -125,6 +145,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numTargetAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAlreadySaved)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSavingsGoals)).BeginInit();
+            this.pnlReports.SuspendLayout();
+            this.pnlReportFilter.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numReportYear)).BeginInit();
+            this.pnlReportSummary.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chtExpensesByCategory)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -778,6 +803,7 @@
             // 
             // pnlSaving
             // 
+            this.pnlSaving.Controls.Add(this.pnlReports);
             this.pnlSaving.Controls.Add(this.btnDeleteGoal);
             this.pnlSaving.Controls.Add(this.btnAddSavings);
             this.pnlSaving.Controls.Add(this.dgvSavingsGoals);
@@ -940,6 +966,209 @@
             this.btnDeleteGoal.Text = "Delete Goal";
             this.btnDeleteGoal.UseVisualStyleBackColor = true;
             // 
+            // pnlReports
+            // 
+            this.pnlReports.Controls.Add(this.lblExpensesByCategoryTitle);
+            this.pnlReports.Controls.Add(this.chtExpensesByCategory);
+            this.pnlReports.Controls.Add(this.pnlReportSummary);
+            this.pnlReports.Controls.Add(this.pnlReportFilter);
+            this.pnlReports.Controls.Add(this.lblReportsPageTitle);
+            this.pnlReports.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlReports.Location = new System.Drawing.Point(0, 0);
+            this.pnlReports.Name = "pnlReports";
+            this.pnlReports.Size = new System.Drawing.Size(496, 944);
+            this.pnlReports.TabIndex = 6;
+            // 
+            // lblReportsPageTitle
+            // 
+            this.lblReportsPageTitle.AutoSize = true;
+            this.lblReportsPageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReportsPageTitle.Location = new System.Drawing.Point(36, 66);
+            this.lblReportsPageTitle.Name = "lblReportsPageTitle";
+            this.lblReportsPageTitle.Size = new System.Drawing.Size(167, 46);
+            this.lblReportsPageTitle.TabIndex = 0;
+            this.lblReportsPageTitle.Text = "Reports";
+            // 
+            // pnlReportFilter
+            // 
+            this.pnlReportFilter.Controls.Add(this.btnGenerateReport);
+            this.pnlReportFilter.Controls.Add(this.numReportYear);
+            this.pnlReportFilter.Controls.Add(this.lblReportYear);
+            this.pnlReportFilter.Controls.Add(this.cmbReportMonth);
+            this.pnlReportFilter.Controls.Add(this.lblReportMonth);
+            this.pnlReportFilter.Location = new System.Drawing.Point(19, 157);
+            this.pnlReportFilter.Name = "pnlReportFilter";
+            this.pnlReportFilter.Size = new System.Drawing.Size(448, 112);
+            this.pnlReportFilter.TabIndex = 1;
+            // 
+            // lblReportMonth
+            // 
+            this.lblReportMonth.AutoSize = true;
+            this.lblReportMonth.Location = new System.Drawing.Point(13, 24);
+            this.lblReportMonth.Name = "lblReportMonth";
+            this.lblReportMonth.Size = new System.Drawing.Size(54, 20);
+            this.lblReportMonth.TabIndex = 0;
+            this.lblReportMonth.Text = "Month";
+            // 
+            // cmbReportMonth
+            // 
+            this.cmbReportMonth.FormattingEnabled = true;
+            this.cmbReportMonth.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.cmbReportMonth.Location = new System.Drawing.Point(76, 17);
+            this.cmbReportMonth.Name = "cmbReportMonth";
+            this.cmbReportMonth.Size = new System.Drawing.Size(121, 28);
+            this.cmbReportMonth.TabIndex = 1;
+            // 
+            // lblReportYear
+            // 
+            this.lblReportYear.AutoSize = true;
+            this.lblReportYear.Location = new System.Drawing.Point(232, 23);
+            this.lblReportYear.Name = "lblReportYear";
+            this.lblReportYear.Size = new System.Drawing.Size(43, 20);
+            this.lblReportYear.TabIndex = 2;
+            this.lblReportYear.Text = "Year";
+            // 
+            // numReportYear
+            // 
+            this.numReportYear.Location = new System.Drawing.Point(293, 17);
+            this.numReportYear.Maximum = new decimal(new int[] {
+            2100,
+            0,
+            0,
+            0});
+            this.numReportYear.Minimum = new decimal(new int[] {
+            2020,
+            0,
+            0,
+            0});
+            this.numReportYear.Name = "numReportYear";
+            this.numReportYear.Size = new System.Drawing.Size(120, 26);
+            this.numReportYear.TabIndex = 3;
+            this.numReportYear.Value = new decimal(new int[] {
+            2026,
+            0,
+            0,
+            0});
+            this.numReportYear.ValueChanged += new System.EventHandler(this.numReportYear_ValueChanged);
+            // 
+            // btnGenerateReport
+            // 
+            this.btnGenerateReport.Location = new System.Drawing.Point(124, 62);
+            this.btnGenerateReport.Name = "btnGenerateReport";
+            this.btnGenerateReport.Size = new System.Drawing.Size(234, 32);
+            this.btnGenerateReport.TabIndex = 4;
+            this.btnGenerateReport.Text = "Generate Report";
+            this.btnGenerateReport.UseVisualStyleBackColor = true;
+            this.btnGenerateReport.Click += new System.EventHandler(this.btnGenerateReport_Click);
+            // 
+            // pnlReportSummary
+            // 
+            this.pnlReportSummary.Controls.Add(this.lblReportSavings);
+            this.pnlReportSummary.Controls.Add(this.lblReportSavingsTitle);
+            this.pnlReportSummary.Controls.Add(this.lblReportExpenses);
+            this.pnlReportSummary.Controls.Add(this.lblReportExpensesTitle);
+            this.pnlReportSummary.Controls.Add(this.lblReportIncome);
+            this.pnlReportSummary.Controls.Add(this.lblReportIncomeTitle);
+            this.pnlReportSummary.Location = new System.Drawing.Point(19, 341);
+            this.pnlReportSummary.Name = "pnlReportSummary";
+            this.pnlReportSummary.Size = new System.Drawing.Size(448, 113);
+            this.pnlReportSummary.TabIndex = 2;
+            // 
+            // lblReportIncomeTitle
+            // 
+            this.lblReportIncomeTitle.AutoSize = true;
+            this.lblReportIncomeTitle.Location = new System.Drawing.Point(27, 16);
+            this.lblReportIncomeTitle.Name = "lblReportIncomeTitle";
+            this.lblReportIncomeTitle.Size = new System.Drawing.Size(101, 20);
+            this.lblReportIncomeTitle.TabIndex = 0;
+            this.lblReportIncomeTitle.Text = "Total Income";
+            // 
+            // lblReportIncome
+            // 
+            this.lblReportIncome.AutoSize = true;
+            this.lblReportIncome.Location = new System.Drawing.Point(47, 53);
+            this.lblReportIncome.Name = "lblReportIncome";
+            this.lblReportIncome.Size = new System.Drawing.Size(76, 20);
+            this.lblReportIncome.TabIndex = 1;
+            this.lblReportIncome.Text = "0.00 JOD";
+            // 
+            // lblReportExpensesTitle
+            // 
+            this.lblReportExpensesTitle.AutoSize = true;
+            this.lblReportExpensesTitle.Location = new System.Drawing.Point(157, 16);
+            this.lblReportExpensesTitle.Name = "lblReportExpensesTitle";
+            this.lblReportExpensesTitle.Size = new System.Drawing.Size(118, 20);
+            this.lblReportExpensesTitle.TabIndex = 2;
+            this.lblReportExpensesTitle.Text = "Total Expenses";
+            // 
+            // lblReportExpenses
+            // 
+            this.lblReportExpenses.AutoSize = true;
+            this.lblReportExpenses.Location = new System.Drawing.Point(176, 57);
+            this.lblReportExpenses.Name = "lblReportExpenses";
+            this.lblReportExpenses.Size = new System.Drawing.Size(76, 20);
+            this.lblReportExpenses.TabIndex = 3;
+            this.lblReportExpenses.Text = "0.00 JOD";
+            this.lblReportExpenses.Click += new System.EventHandler(this.lblReportExpenses_Click);
+            // 
+            // lblReportSavingsTitle
+            // 
+            this.lblReportSavingsTitle.AutoSize = true;
+            this.lblReportSavingsTitle.Location = new System.Drawing.Point(301, 16);
+            this.lblReportSavingsTitle.Name = "lblReportSavingsTitle";
+            this.lblReportSavingsTitle.Size = new System.Drawing.Size(94, 20);
+            this.lblReportSavingsTitle.TabIndex = 4;
+            this.lblReportSavingsTitle.Text = "Net Savings";
+            this.lblReportSavingsTitle.Click += new System.EventHandler(this.lblReportSavingsTitle_Click);
+            // 
+            // lblReportSavings
+            // 
+            this.lblReportSavings.AutoSize = true;
+            this.lblReportSavings.Location = new System.Drawing.Point(310, 57);
+            this.lblReportSavings.Name = "lblReportSavings";
+            this.lblReportSavings.Size = new System.Drawing.Size(76, 20);
+            this.lblReportSavings.TabIndex = 5;
+            this.lblReportSavings.Text = "0.00 JOD";
+            // 
+            // chtExpensesByCategory
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chtExpensesByCategory.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chtExpensesByCategory.Legends.Add(legend2);
+            this.chtExpensesByCategory.Location = new System.Drawing.Point(19, 553);
+            this.chtExpensesByCategory.Name = "chtExpensesByCategory";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chtExpensesByCategory.Series.Add(series2);
+            this.chtExpensesByCategory.Size = new System.Drawing.Size(462, 331);
+            this.chtExpensesByCategory.TabIndex = 3;
+            this.chtExpensesByCategory.Text = "chart1";
+            // 
+            // lblExpensesByCategoryTitle
+            // 
+            this.lblExpensesByCategoryTitle.AutoSize = true;
+            this.lblExpensesByCategoryTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpensesByCategoryTitle.Location = new System.Drawing.Point(41, 504);
+            this.lblExpensesByCategoryTitle.Name = "lblExpensesByCategoryTitle";
+            this.lblExpensesByCategoryTitle.Size = new System.Drawing.Size(318, 32);
+            this.lblExpensesByCategoryTitle.TabIndex = 4;
+            this.lblExpensesByCategoryTitle.Text = "Expenses by Category";
+            this.lblExpensesByCategoryTitle.Click += new System.EventHandler(this.lblExpensesByCategoryTitle_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -983,6 +1212,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numTargetAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numAlreadySaved)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSavingsGoals)).EndInit();
+            this.pnlReports.ResumeLayout(false);
+            this.pnlReports.PerformLayout();
+            this.pnlReportFilter.ResumeLayout(false);
+            this.pnlReportFilter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numReportYear)).EndInit();
+            this.pnlReportSummary.ResumeLayout(false);
+            this.pnlReportSummary.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chtExpensesByCategory)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1065,6 +1302,23 @@
         private System.Windows.Forms.Label lblYourGoals;
         private System.Windows.Forms.Button btnDeleteGoal;
         private System.Windows.Forms.Button btnAddSavings;
+        private System.Windows.Forms.Panel pnlReports;
+        private System.Windows.Forms.Panel pnlReportFilter;
+        private System.Windows.Forms.Label lblReportMonth;
+        private System.Windows.Forms.Label lblReportsPageTitle;
+        private System.Windows.Forms.NumericUpDown numReportYear;
+        private System.Windows.Forms.Label lblReportYear;
+        private System.Windows.Forms.ComboBox cmbReportMonth;
+        private System.Windows.Forms.Button btnGenerateReport;
+        private System.Windows.Forms.Panel pnlReportSummary;
+        private System.Windows.Forms.Label lblReportExpenses;
+        private System.Windows.Forms.Label lblReportExpensesTitle;
+        private System.Windows.Forms.Label lblReportIncome;
+        private System.Windows.Forms.Label lblReportIncomeTitle;
+        private System.Windows.Forms.Label lblReportSavings;
+        private System.Windows.Forms.Label lblReportSavingsTitle;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chtExpensesByCategory;
+        private System.Windows.Forms.Label lblExpensesByCategoryTitle;
     }
 }
 

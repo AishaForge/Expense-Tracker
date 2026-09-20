@@ -51,5 +51,30 @@ namespace ExpenseTracher
         {
 
         }
+
+        private void numReportYear_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGenerateReport_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblReportExpenses_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblReportSavingsTitle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblExpensesByCategoryTitle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
