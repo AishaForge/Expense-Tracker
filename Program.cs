@@ -16,7 +16,8 @@ namespace ExpenseTracher
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Database.InitializeDatabase(); // ready up the tables and database for use
+            Application.Run(new MainForm()); // start the main form of the application
         }
     }
 }
