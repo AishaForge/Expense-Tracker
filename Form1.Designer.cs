@@ -68,6 +68,27 @@
             this.btnAddTransaction = new System.Windows.Forms.Button();
             this.lblAllTransaction = new System.Windows.Forms.Label();
             this.dgvTransactions = new System.Windows.Forms.DataGridView();
+            this.pnlBudget = new System.Windows.Forms.Panel();
+            this.lblBudgetPageTitle = new System.Windows.Forms.Label();
+            this.pnlSetBudget = new System.Windows.Forms.Panel();
+            this.lblSetBudgetTitle = new System.Windows.Forms.Label();
+            this.lblBudgetMonth = new System.Windows.Forms.Label();
+            this.cmbBudgetMonth = new System.Windows.Forms.ComboBox();
+            this.lblBudgetYear = new System.Windows.Forms.Label();
+            this.numBudgetYear = new System.Windows.Forms.NumericUpDown();
+            this.lblBudgetAmountInput = new System.Windows.Forms.Label();
+            this.numBudgetAmount = new System.Windows.Forms.NumericUpDown();
+            this.btnSaveBudget = new System.Windows.Forms.Button();
+            this.pnlBudgetOverview = new System.Windows.Forms.Panel();
+            this.lblBudgetOvetvieoTitle = new System.Windows.Forms.Label();
+            this.lblOverviewBudgetTitle = new System.Windows.Forms.Label();
+            this.lblOverviewBudget = new System.Windows.Forms.Label();
+            this.lblSpentTitle = new System.Windows.Forms.Label();
+            this.lblSpent = new System.Windows.Forms.Label();
+            this.lblRemainingTitle = new System.Windows.Forms.Label();
+            this.lblRemaining = new System.Windows.Forms.Label();
+            this.prgBudgetOverview = new System.Windows.Forms.ProgressBar();
+            this.lblBudgetPercentage = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             this.pnlMain.SuspendLayout();
             this.bnlBalance.SuspendLayout();
@@ -79,6 +100,11 @@
             this.pnlAddTransaction.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).BeginInit();
+            this.pnlBudget.SuspendLayout();
+            this.pnlSetBudget.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBudgetYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBudgetAmount)).BeginInit();
+            this.pnlBudgetOverview.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlSidebar
@@ -96,7 +122,7 @@
             // 
             // btnDashboard
             // 
-            this.btnDashboard.Location = new System.Drawing.Point(43, 77);
+            this.btnDashboard.Location = new System.Drawing.Point(43, 186);
             this.btnDashboard.Name = "btnDashboard";
             this.btnDashboard.Size = new System.Drawing.Size(133, 28);
             this.btnDashboard.TabIndex = 0;
@@ -105,7 +131,7 @@
             // 
             // btnTransaction
             // 
-            this.btnTransaction.Location = new System.Drawing.Point(43, 139);
+            this.btnTransaction.Location = new System.Drawing.Point(43, 233);
             this.btnTransaction.Name = "btnTransaction";
             this.btnTransaction.Size = new System.Drawing.Size(133, 32);
             this.btnTransaction.TabIndex = 1;
@@ -114,7 +140,7 @@
             // 
             // btnBudget
             // 
-            this.btnBudget.Location = new System.Drawing.Point(43, 207);
+            this.btnBudget.Location = new System.Drawing.Point(43, 284);
             this.btnBudget.Name = "btnBudget";
             this.btnBudget.Size = new System.Drawing.Size(133, 29);
             this.btnBudget.TabIndex = 2;
@@ -123,7 +149,7 @@
             // 
             // btnSavings
             // 
-            this.btnSavings.Location = new System.Drawing.Point(43, 275);
+            this.btnSavings.Location = new System.Drawing.Point(43, 334);
             this.btnSavings.Name = "btnSavings";
             this.btnSavings.Size = new System.Drawing.Size(133, 33);
             this.btnSavings.TabIndex = 3;
@@ -132,7 +158,7 @@
             // 
             // btnReports
             // 
-            this.btnReports.Location = new System.Drawing.Point(43, 340);
+            this.btnReports.Location = new System.Drawing.Point(43, 384);
             this.btnReports.Name = "btnReports";
             this.btnReports.Size = new System.Drawing.Size(133, 30);
             this.btnReports.TabIndex = 4;
@@ -308,6 +334,7 @@
             // 
             // pnlTransactions
             // 
+            this.pnlTransactions.Controls.Add(this.pnlBudget);
             this.pnlTransactions.Controls.Add(this.dgvTransactions);
             this.pnlTransactions.Controls.Add(this.lblAllTransaction);
             this.pnlTransactions.Controls.Add(this.pnlAddTransaction);
@@ -493,6 +520,241 @@
             this.dgvTransactions.Size = new System.Drawing.Size(422, 197);
             this.dgvTransactions.TabIndex = 3;
             // 
+            // pnlBudget
+            // 
+            this.pnlBudget.Controls.Add(this.pnlBudgetOverview);
+            this.pnlBudget.Controls.Add(this.pnlSetBudget);
+            this.pnlBudget.Controls.Add(this.lblBudgetPageTitle);
+            this.pnlBudget.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlBudget.Location = new System.Drawing.Point(0, 0);
+            this.pnlBudget.Name = "pnlBudget";
+            this.pnlBudget.Size = new System.Drawing.Size(496, 944);
+            this.pnlBudget.TabIndex = 4;
+            // 
+            // lblBudgetPageTitle
+            // 
+            this.lblBudgetPageTitle.AutoSize = true;
+            this.lblBudgetPageTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBudgetPageTitle.Location = new System.Drawing.Point(64, 66);
+            this.lblBudgetPageTitle.Name = "lblBudgetPageTitle";
+            this.lblBudgetPageTitle.Size = new System.Drawing.Size(152, 46);
+            this.lblBudgetPageTitle.TabIndex = 0;
+            this.lblBudgetPageTitle.Text = "Budget";
+            // 
+            // pnlSetBudget
+            // 
+            this.pnlSetBudget.Controls.Add(this.btnSaveBudget);
+            this.pnlSetBudget.Controls.Add(this.numBudgetAmount);
+            this.pnlSetBudget.Controls.Add(this.lblBudgetAmountInput);
+            this.pnlSetBudget.Controls.Add(this.numBudgetYear);
+            this.pnlSetBudget.Controls.Add(this.lblBudgetYear);
+            this.pnlSetBudget.Controls.Add(this.cmbBudgetMonth);
+            this.pnlSetBudget.Controls.Add(this.lblBudgetMonth);
+            this.pnlSetBudget.Controls.Add(this.lblSetBudgetTitle);
+            this.pnlSetBudget.Location = new System.Drawing.Point(33, 150);
+            this.pnlSetBudget.Name = "pnlSetBudget";
+            this.pnlSetBudget.Size = new System.Drawing.Size(448, 233);
+            this.pnlSetBudget.TabIndex = 1;
+            // 
+            // lblSetBudgetTitle
+            // 
+            this.lblSetBudgetTitle.AutoSize = true;
+            this.lblSetBudgetTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSetBudgetTitle.Location = new System.Drawing.Point(20, 15);
+            this.lblSetBudgetTitle.Name = "lblSetBudgetTitle";
+            this.lblSetBudgetTitle.Size = new System.Drawing.Size(280, 32);
+            this.lblSetBudgetTitle.TabIndex = 0;
+            this.lblSetBudgetTitle.Text = "Set Monthly Budget";
+            // 
+            // lblBudgetMonth
+            // 
+            this.lblBudgetMonth.AutoSize = true;
+            this.lblBudgetMonth.Location = new System.Drawing.Point(31, 68);
+            this.lblBudgetMonth.Name = "lblBudgetMonth";
+            this.lblBudgetMonth.Size = new System.Drawing.Size(54, 20);
+            this.lblBudgetMonth.TabIndex = 1;
+            this.lblBudgetMonth.Text = "Month";
+            // 
+            // cmbBudgetMonth
+            // 
+            this.cmbBudgetMonth.FormattingEnabled = true;
+            this.cmbBudgetMonth.Items.AddRange(new object[] {
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December"});
+            this.cmbBudgetMonth.Location = new System.Drawing.Point(91, 64);
+            this.cmbBudgetMonth.Name = "cmbBudgetMonth";
+            this.cmbBudgetMonth.Size = new System.Drawing.Size(121, 28);
+            this.cmbBudgetMonth.TabIndex = 2;
+            // 
+            // lblBudgetYear
+            // 
+            this.lblBudgetYear.AutoSize = true;
+            this.lblBudgetYear.Location = new System.Drawing.Point(250, 67);
+            this.lblBudgetYear.Name = "lblBudgetYear";
+            this.lblBudgetYear.Size = new System.Drawing.Size(43, 20);
+            this.lblBudgetYear.TabIndex = 3;
+            this.lblBudgetYear.Text = "Year";
+            this.lblBudgetYear.Click += new System.EventHandler(this.lblBudgetYear_Click);
+            // 
+            // numBudgetYear
+            // 
+            this.numBudgetYear.Location = new System.Drawing.Point(303, 65);
+            this.numBudgetYear.Maximum = new decimal(new int[] {
+            2100,
+            0,
+            0,
+            0});
+            this.numBudgetYear.Minimum = new decimal(new int[] {
+            2020,
+            0,
+            0,
+            0});
+            this.numBudgetYear.Name = "numBudgetYear";
+            this.numBudgetYear.Size = new System.Drawing.Size(94, 26);
+            this.numBudgetYear.TabIndex = 4;
+            this.numBudgetYear.Value = new decimal(new int[] {
+            2026,
+            0,
+            0,
+            0});
+            // 
+            // lblBudgetAmountInput
+            // 
+            this.lblBudgetAmountInput.AutoSize = true;
+            this.lblBudgetAmountInput.Location = new System.Drawing.Point(29, 125);
+            this.lblBudgetAmountInput.Name = "lblBudgetAmountInput";
+            this.lblBudgetAmountInput.Size = new System.Drawing.Size(121, 20);
+            this.lblBudgetAmountInput.TabIndex = 5;
+            this.lblBudgetAmountInput.Text = "Budget Amount";
+            // 
+            // numBudgetAmount
+            // 
+            this.numBudgetAmount.DecimalPlaces = 2;
+            this.numBudgetAmount.Location = new System.Drawing.Point(156, 123);
+            this.numBudgetAmount.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numBudgetAmount.Name = "numBudgetAmount";
+            this.numBudgetAmount.Size = new System.Drawing.Size(128, 26);
+            this.numBudgetAmount.TabIndex = 6;
+            // 
+            // btnSaveBudget
+            // 
+            this.btnSaveBudget.Location = new System.Drawing.Point(143, 176);
+            this.btnSaveBudget.Name = "btnSaveBudget";
+            this.btnSaveBudget.Size = new System.Drawing.Size(190, 34);
+            this.btnSaveBudget.TabIndex = 7;
+            this.btnSaveBudget.Text = "Save Budget";
+            this.btnSaveBudget.UseVisualStyleBackColor = true;
+            // 
+            // pnlBudgetOverview
+            // 
+            this.pnlBudgetOverview.Controls.Add(this.lblBudgetPercentage);
+            this.pnlBudgetOverview.Controls.Add(this.prgBudgetOverview);
+            this.pnlBudgetOverview.Controls.Add(this.lblRemaining);
+            this.pnlBudgetOverview.Controls.Add(this.lblRemainingTitle);
+            this.pnlBudgetOverview.Controls.Add(this.lblSpent);
+            this.pnlBudgetOverview.Controls.Add(this.lblSpentTitle);
+            this.pnlBudgetOverview.Controls.Add(this.lblOverviewBudget);
+            this.pnlBudgetOverview.Controls.Add(this.lblOverviewBudgetTitle);
+            this.pnlBudgetOverview.Controls.Add(this.lblBudgetOvetvieoTitle);
+            this.pnlBudgetOverview.Location = new System.Drawing.Point(33, 407);
+            this.pnlBudgetOverview.Name = "pnlBudgetOverview";
+            this.pnlBudgetOverview.Size = new System.Drawing.Size(448, 222);
+            this.pnlBudgetOverview.TabIndex = 2;
+            // 
+            // lblBudgetOvetvieoTitle
+            // 
+            this.lblBudgetOvetvieoTitle.AutoSize = true;
+            this.lblBudgetOvetvieoTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBudgetOvetvieoTitle.Location = new System.Drawing.Point(31, 14);
+            this.lblBudgetOvetvieoTitle.Name = "lblBudgetOvetvieoTitle";
+            this.lblBudgetOvetvieoTitle.Size = new System.Drawing.Size(245, 32);
+            this.lblBudgetOvetvieoTitle.TabIndex = 0;
+            this.lblBudgetOvetvieoTitle.Text = "Budget Overview";
+            // 
+            // lblOverviewBudgetTitle
+            // 
+            this.lblOverviewBudgetTitle.AutoSize = true;
+            this.lblOverviewBudgetTitle.Location = new System.Drawing.Point(43, 79);
+            this.lblOverviewBudgetTitle.Name = "lblOverviewBudgetTitle";
+            this.lblOverviewBudgetTitle.Size = new System.Drawing.Size(61, 20);
+            this.lblOverviewBudgetTitle.TabIndex = 1;
+            this.lblOverviewBudgetTitle.Text = "Budget";
+            // 
+            // lblOverviewBudget
+            // 
+            this.lblOverviewBudget.AutoSize = true;
+            this.lblOverviewBudget.Location = new System.Drawing.Point(43, 123);
+            this.lblOverviewBudget.Name = "lblOverviewBudget";
+            this.lblOverviewBudget.Size = new System.Drawing.Size(76, 20);
+            this.lblOverviewBudget.TabIndex = 2;
+            this.lblOverviewBudget.Text = "0.00 JOD";
+            // 
+            // lblSpentTitle
+            // 
+            this.lblSpentTitle.AutoSize = true;
+            this.lblSpentTitle.Location = new System.Drawing.Point(178, 77);
+            this.lblSpentTitle.Name = "lblSpentTitle";
+            this.lblSpentTitle.Size = new System.Drawing.Size(52, 20);
+            this.lblSpentTitle.TabIndex = 3;
+            this.lblSpentTitle.Text = "Spent";
+            // 
+            // lblSpent
+            // 
+            this.lblSpent.AutoSize = true;
+            this.lblSpent.Location = new System.Drawing.Point(167, 123);
+            this.lblSpent.Name = "lblSpent";
+            this.lblSpent.Size = new System.Drawing.Size(76, 20);
+            this.lblSpent.TabIndex = 4;
+            this.lblSpent.Text = "0.00 JOD";
+            // 
+            // lblRemainingTitle
+            // 
+            this.lblRemainingTitle.AutoSize = true;
+            this.lblRemainingTitle.Location = new System.Drawing.Point(296, 77);
+            this.lblRemainingTitle.Name = "lblRemainingTitle";
+            this.lblRemainingTitle.Size = new System.Drawing.Size(85, 20);
+            this.lblRemainingTitle.TabIndex = 5;
+            this.lblRemainingTitle.Text = "Remaining";
+            // 
+            // lblRemaining
+            // 
+            this.lblRemaining.AutoSize = true;
+            this.lblRemaining.Location = new System.Drawing.Point(299, 123);
+            this.lblRemaining.Name = "lblRemaining";
+            this.lblRemaining.Size = new System.Drawing.Size(76, 20);
+            this.lblRemaining.TabIndex = 6;
+            this.lblRemaining.Text = "0.00 JOD";
+            // 
+            // prgBudgetOverview
+            // 
+            this.prgBudgetOverview.Location = new System.Drawing.Point(77, 169);
+            this.prgBudgetOverview.Name = "prgBudgetOverview";
+            this.prgBudgetOverview.Size = new System.Drawing.Size(334, 23);
+            this.prgBudgetOverview.TabIndex = 7;
+            // 
+            // lblBudgetPercentage
+            // 
+            this.lblBudgetPercentage.AutoSize = true;
+            this.lblBudgetPercentage.Location = new System.Drawing.Point(33, 169);
+            this.lblBudgetPercentage.Name = "lblBudgetPercentage";
+            this.lblBudgetPercentage.Size = new System.Drawing.Size(32, 20);
+            this.lblBudgetPercentage.TabIndex = 8;
+            this.lblBudgetPercentage.Text = "0%";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -521,6 +783,14 @@
             this.pnlAddTransaction.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTransactions)).EndInit();
+            this.pnlBudget.ResumeLayout(false);
+            this.pnlBudget.PerformLayout();
+            this.pnlSetBudget.ResumeLayout(false);
+            this.pnlSetBudget.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numBudgetYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numBudgetAmount)).EndInit();
+            this.pnlBudgetOverview.ResumeLayout(false);
+            this.pnlBudgetOverview.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -567,6 +837,27 @@
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.DataGridView dgvTransactions;
         private System.Windows.Forms.Label lblAllTransaction;
+        private System.Windows.Forms.Panel pnlBudget;
+        private System.Windows.Forms.Label lblBudgetPageTitle;
+        private System.Windows.Forms.Panel pnlSetBudget;
+        private System.Windows.Forms.Label lblSetBudgetTitle;
+        private System.Windows.Forms.NumericUpDown numBudgetYear;
+        private System.Windows.Forms.Label lblBudgetYear;
+        private System.Windows.Forms.ComboBox cmbBudgetMonth;
+        private System.Windows.Forms.Label lblBudgetMonth;
+        private System.Windows.Forms.Label lblBudgetAmountInput;
+        private System.Windows.Forms.NumericUpDown numBudgetAmount;
+        private System.Windows.Forms.Panel pnlBudgetOverview;
+        private System.Windows.Forms.Button btnSaveBudget;
+        private System.Windows.Forms.Label lblBudgetOvetvieoTitle;
+        private System.Windows.Forms.Label lblRemaining;
+        private System.Windows.Forms.Label lblRemainingTitle;
+        private System.Windows.Forms.Label lblSpent;
+        private System.Windows.Forms.Label lblSpentTitle;
+        private System.Windows.Forms.Label lblOverviewBudget;
+        private System.Windows.Forms.Label lblOverviewBudgetTitle;
+        private System.Windows.Forms.Label lblBudgetPercentage;
+        private System.Windows.Forms.ProgressBar prgBudgetOverview;
     }
 }
 
